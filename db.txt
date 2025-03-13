@@ -1,0 +1,11 @@
+CREATE DATABASE radovi;
+USE radovi;
+CREATE TABLE diplomski_radovi (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    naziv_rada VARCHAR(255),
+    tekst_rada TEXT,
+    link_rada VARCHAR(255),
+    oib_tvrtke VARCHAR(13)
+);
+SHOW TABLES;
+DESCRIBE diplomski_radovi;
