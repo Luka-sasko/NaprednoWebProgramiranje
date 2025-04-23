@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2= project.naziv
+  p= project.opis
+  p Cijena: #{project.cijena} kn
+  p Poslovi: #{project.obavljeniPoslovi}
+  p Od: #{project.datumPocetka.toDateString()} do #{project.datumZavrsetka.toDateString()}
+  h3 Članovi tima:
+  ul
+    each c in project.clanovi
+      li= c
+  a(href="/projects/" + project._id + "/edit") Uredi
+  form(action="/projects/" + project._id + "?_method=DELETE", method="POST", style="display:inline;")
+    button(type="submit") Obriši

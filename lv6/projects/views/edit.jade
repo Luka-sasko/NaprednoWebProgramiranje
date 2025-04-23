@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  form(action="/projects/" + project._id + "?_method=PUT", method="POST")
+    input(type="text", name="naziv", value=project.naziv)
+    input(type="text", name="opis", value=project.opis)
+    input(type="number", name="cijena", value=project.cijena)
+    input(type="text", name="obavljeniPoslovi", value=project.obavljeniPoslovi)
+    input(type="date", name="datumPocetka", value=project.datumPocetka.toISOString().slice(0, 10))
+    input(type="date", name="datumZavrsetka", value=project.datumZavrsetka.toISOString().slice(0, 10))
+    each clan, i in project.clanovi
+      input(type="text", name="clanovi", value=clan)
+    button(type="submit") Ažuriraj

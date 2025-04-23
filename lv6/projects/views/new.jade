@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form(action="/projects", method="POST")
+    input(type="text", name="naziv", placeholder="Naziv projekta", required=true)
+    input(type="text", name="opis", placeholder="Opis")
+    input(type="number", name="cijena", placeholder="Cijena")
+    input(type="text", name="obavljeniPoslovi", placeholder="Obavljeni poslovi")
+    input(type="date", name="datumPocetka")
+    input(type="date", name="datumZavrsetka")
+    label Članovi tima:
+    input(type="text", name="clanovi", placeholder="Član 1")
+    input(type="text", name="clanovi", placeholder="Član 2")
+    input(type="text", name="clanovi", placeholder="Član 3")
+    button(type="submit") Spremi

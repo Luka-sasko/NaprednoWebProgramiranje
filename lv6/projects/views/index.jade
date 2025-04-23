@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  a(href="/projects/new") Dodaj novi projekt
+  ul
+    each p in projects
+      li
+        a(href="/projects/" + p._id)= p.naziv
