@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Projekti na kojima sudjelujem
+  ul
+    each projekt in projekti
+      li
+        strong= projekt.naziv
+        |  – opis: #{projekt.opis}

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1 Detalji projekta
+  p
+    strong Naziv:
+    |  #{project.naziv}
+  p
+    strong Opis:
+    |  #{project.opis}
+  p
+    strong Cijena:
+    |  #{project.cijena}
+  p
+    strong Obavljeni poslovi:
+    |  #{project.obavljeni_poslovi}
+  p
+    strong Datum početka:
+    |  #{project.datum_pocetka.toISOString().split('T')[0]}
+  p
+    strong Datum završetka:
+    |  #{project.datum_zavrsetka.toISOString().split('T')[0]}
+  p
+    strong Članovi:
+    ul
+      each clan in project.clanovi
+        li #{clan}
+  p
+    strong Voditelj:
+    |  #{project.voditelj}
+  p
+    strong Arhiviran:
+    |  #{project.arhiviran ? 'Da' : 'Ne'}
+  if user && project.voditelj.toString() === user._id.toString()
+    a(href='/projects/' + project._id + '/edit') Uredi
+    form(action='/projects/' + project._id + '?_method=DELETE', method="POST", style="display:inline")
+      button(type="submit") Obriši

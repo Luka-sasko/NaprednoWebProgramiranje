@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1 Uredi projekt
+  form(action=`/projects/${project._id}?_method=PUT` method="POST")
+    label(for="naziv") Naziv:
+    input(type="text" name="naziv" value=project.naziv required)
+    br
+    label(for="opis") Opis:
+    textarea(name="opis" required) #{project.opis}
+    br
+    label(for="cijena") Cijena:
+    input(type="number" name="cijena" value=project.cijena required)
+    br
+    label(for="obavljeni_poslovi") Obavljeni poslovi:
+    textarea(name="obavljeni_poslovi" required) #{project.obavljeni_poslovi}
+    br
+    label(for="datum_pocetka") Datum početka:
+    input(type="date" name="datum_pocetka" value=project.datum_pocetka.toISOString().split('T')[0] required)
+    br
+    label(for="datum_zavrsetka") Datum završetka:
+    input(type="date" name="datum_zavrsetka" value=project.datum_zavrsetka.toISOString().split('T')[0] required)
+    br
+    label(for="clanovi") Članovi (ID korisnika, odvojeni zarezom):
+    input(type="text" name="clanovi" value=project.clanovi.join(','))
+    br
+    label(for="arhiviran") Arhiviran:
+    input(type="checkbox" name="arhiviran" checked=project.arhiviran)
+    br
+    button(type="submit") Spremi

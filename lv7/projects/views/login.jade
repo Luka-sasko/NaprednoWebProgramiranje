@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Prijava
+  form(action="/login" method="POST")
+    label(for="username") Korisničko ime:
+    input(type="text" name="username" required)
+    br
+    label(for="password") Lozinka:
+    input(type="password" name="password" required)
+    br
+    button(type="submit") Prijavi se

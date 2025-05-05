@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 Novi projekt
+  form(action="/projects" method="POST")
+    label(for="naziv") Naziv:
+    input(type="text" name="naziv" required)
+    br
+    label(for="opis") Opis:
+    textarea(name="opis" required)
+    br
+    label(for="cijena") Cijena:
+    input(type="number" name="cijena" required)
+    br
+    label(for="obavljeni_poslovi") Obavljeni poslovi:
+    textarea(name="obavljeni_poslovi" required)
+    br
+    label(for="datum_pocetka") Datum početka:
+    input(type="date" name="datum_pocetka" required)
+    br
+    label(for="datum_zavrsetka") Datum završetka:
+    input(type="date" name="datum_zavrsetka" required)
+    br
+    label(for="clanovi") Članovi (ID korisnika, odvojeni zarezom):
+    input(type="text" name="clanovi" placeholder="npr. user1,user2")
+    br
+    button(type="submit") Kreiraj projekt

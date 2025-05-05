@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Project Management
+    style.
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      nav { margin-bottom: 20px; }
+      nav a { margin-right: 10px; }
+      .message { padding: 10px; margin-bottom: 10px; }
+      .success { background-color: #d4edda; color: #155724; }
+      .error { background-color: #f8d7da; color: #721c24; }
+  body
+    nav
+      if user
+        a(href="/projects") Svi projekti
+        a(href="/projects/moji-projekti") Moji projekti (voditelj)
+        a(href="/projects/projekti-clan") Projekti na kojima sudjelujem
+        a(href="/projects/arhiva") Arhiva
+        a(href="/projects/new") Novi projekt
+        a(href="/logout") Odjava
+      else
+        a(href="/login") Prijava
+        a(href="/register") Registracija
+    if success_msg
+      p.message.success #{success_msg}
+    if error_msg
+      p.message.error #{error_msg}
+    block content
